@@ -45,7 +45,7 @@ body {
 }
 
 .guillotine__top-bar {
-    width: 8rem;
+    width: 9rem;
     height: 2px;
 }
 
@@ -67,12 +67,22 @@ body {
     left: 12rem;
 }
 
+.guillotine__diagonal-bar {
+    top: 3rem;
+    width: 2px;
+    height: 4rem;
+    transform-origin: left top;
+    transform: rotate(-135deg) translate(-1px, 1px);
+}
+
 .guillotine__man-head {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     top: var(--man-start-point);
     left: 10rem;
+    background: transparent;
+    border: 2px solid white;
 }
 
 .guillotine__man-body {
@@ -119,6 +129,7 @@ body {
     text-align: center;
     color: white;
     font-weight: 600;
+    min-height: 2rem;
 }
 
 .popup {

@@ -1,24 +1,28 @@
 (function () {
-    const state = {
-        word: getWord(),
-        guessedChars: [],
-        wrongChars: new Map()
-    }
+
+    const state = {}
 
     const DOM = {
         guillotine: document.querySelector('.guillotine'),
         wordContainer: document.querySelector('.word'),
         wrongCharsContainer: document.querySelector('.wrong-chars__content'),
         popup: document.querySelector('.popup'),
-        playAgainBtn: document.querySelector('#playAgain')
+        playAgainBtn: document.querySelector('#playAgain'),
+        rightLeg: document.querySelector('.guillotine__man-right-leg')
     }
 
+    registerEvents()
     init()
 
-    function init() {
+    function registerEvents() {
         document.addEventListener('keyup', onKeyUp)
         DOM.playAgainBtn.addEventListener('click', playAgain)
-        initCharBuckets();
+        DOM.rightLeg.addEventListener('transitionend', displayGameOver)
+    }
+
+    function init() {
+        initState()
+        initCharBuckets()
     }
 
     function initCharBuckets() {
@@ -37,8 +41,7 @@
         } else {
             if (!state.wrongChars.has(char)) {
                 updateHangman()
-                displayWrongChars(char);
-                displayGameOver()
+                displayWrongChars(char)
             }
         }
     }
@@ -49,7 +52,7 @@
             const elems = DOM.wordContainer.querySelectorAll(selector)
             Array.prototype.slice.call(elems).forEach(elem => {
                 elem.innerText = char
-            });
+            })
             for (const p of positions) {
                 state.guessedChars[p] = char
             }
@@ -95,7 +98,7 @@
     function displayWrongChars(char) {
         state.wrongChars.set(char, char)
         const text = DOM.wrongCharsContainer.innerText
-        DOM.wrongCharsContainer.innerText = text ? `${text}, ${state.wrongChars.get(char)}` : char
+        DOM.wrongCharsContainer.innerText = text ? `${text}, ${char}` : char
     }
 
     function onKeyUp(e) {
@@ -106,7 +109,6 @@
     }
 
     function playAgain() {
-        resetState()
         resetHangman()
         DOM.popup.style.display = 'none'
         DOM.wordContainer.innerHTML = ''
@@ -118,10 +120,10 @@
         const elems = document.querySelectorAll(`.man`)
         Array.prototype.slice.call(elems).forEach(elem => {
             elem.classList.add('hide')
-        });
+        })
     }
 
-    function resetState() {
+    function initState() {
         state.word = getWord()
         state.wrongChars = new Map()
         state.guessedChars = []
