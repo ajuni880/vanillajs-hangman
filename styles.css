@@ -26,6 +26,15 @@ body {
     overflow: hidden;
 }
 
+header {
+    margin: 1rem 0 3rem;
+    text-align: center;
+}
+
+header h1, header p{
+    margin: 0;
+}
+
 .hide {
     opacity: 0;
 }
