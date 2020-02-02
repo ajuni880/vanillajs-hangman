@@ -1,0 +1,156 @@
+:root {
+    --black: #333;
+    --man-start-point: 3rem;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background: var(--black);
+    min-height: 100vh;
+    margin: 3rem 0 0;
+    overflow: hidden;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.part {
+    transition: opacity 0.1s ease-out;
+    background: white;
+    position: absolute;
+}
+
+.guillotine {
+    position: relative;
+    min-width: 50vw;
+    min-height: 35vh;
+    padding: 0 4rem;
+    margin: 2rem 0 8rem;
+}
+
+.guillotine__top-bar {
+    width: 8rem;
+    height: 2px;
+}
+
+.guillotine__left-bar {
+    width: 2px;
+    height: 100%;
+}
+
+.guillotine__bottom-bar {
+    width: 8rem;
+    height: 2px;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+.guillotine__right-bar {
+    width: 2px;
+    height: var(--man-start-point);
+    left: 12rem;
+}
+
+.guillotine__man-head {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    top: var(--man-start-point);
+    left: 10rem;
+}
+
+.guillotine__man-body {
+    width: 2px;
+    height: 5rem;
+    left: 12rem;
+    top: calc(var(--man-start-point) + 4rem);
+}
+
+.guillotine__man-left-arm, .guillotine__man-right-arm {
+    top: calc(var(--man-start-point) + 6rem);
+    width: 3rem;
+    left: 12rem;
+    height: 2px;
+    transform: rotate(-45deg);
+    transform-origin: left top;
+}
+
+.guillotine__man-right-arm {
+    transform: rotate(-140deg);
+}
+
+.guillotine__man-left-leg, .guillotine__man-right-leg {
+    top: calc(var(--man-start-point) + 9rem);
+    width: 3rem;
+    left: 12rem;
+    height: 2px;
+    transform: rotate(45deg) translate(1px, -2px);
+    transform-origin: left top;
+}
+
+.guillotine__man-right-leg {
+    transform: rotate(135deg) translate(-1px, -2px);
+}
+
+.word {
+    display: flex;
+}
+
+.word__char {
+    width: 4rem;
+    border-bottom: 2px solid white;
+    margin-right: 1rem;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    color: #333333;
+}
+
+.popup__inner {
+    background: white;
+    padding: 4rem;
+    text-align: center;
+}
+
+#playAgain {
+    border: 0;
+    background: var(--black);
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+}
+
+#playAgain:hover {
+    transform: scale(1.1);
+}

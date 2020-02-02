@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <h1>Hangman</h1>
+    <div class="guillotine">
+        <div class="guillotine__top-bar part"></div>
+        <div class="guillotine__right-bar part"></div>
+        <div class="guillotine__left-bar part"></div>
+        <div class="guillotine__bottom-bar part"></div>
+        <div class="guillotine__man-head man part hide" data-id="0"></div>
+        <div class="guillotine__man-body part man hide" data-id="1"></div>
+        <div class="guillotine__man-left-arm part man hide" data-id="2"></div>
+        <div class="guillotine__man-right-arm part man hide" data-id="3"></div>
+        <div class="guillotine__man-left-leg part man hide" data-id="4"></div>
+        <div class="guillotine__man-right-leg part man hide" data-id="5"></div>
+    </div>
+    <div class="word"></div>
+    <div class="wrong-chars">
+        <p>Wrong answers</p>
+        <div class="wrong-chars__content"></div>
+    </div>
+    <div class="popup">
+        <div class="popup__inner">
+            <div class="popup__body"></div>
+            <button id="playAgain">Play again</button>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
