@@ -39,7 +39,7 @@
         if (!alreadyGuessed && positions.length) {
             displayGuessedChars(positions, char)
         } else {
-            if (!state.wrongChars.has(char)) {
+            if (!alreadyGuessed && !state.wrongChars.has(char)) {
                 updateHangman()
                 displayWrongChars(char)
             }
