@@ -13,14 +13,14 @@ html {
 }
 
 body {
-    color: white;
+    color: var(--black);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     display: flex;
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    background: var(--black);
+    background: white;
     min-height: 100vh;
     margin: 3rem 0 0;
     overflow: hidden;
@@ -41,7 +41,7 @@ header h1, header p{
 
 .part {
     transition: opacity 0.1s ease-out;
-    background: white;
+    background: var(--black);
     position: absolute;
 }
 
@@ -91,7 +91,7 @@ header h1, header p{
     top: var(--man-start-point);
     left: 10rem;
     background: transparent;
-    border: 2px solid white;
+    border: 2px solid var(--black);
 }
 
 .guillotine__man-body {
@@ -132,11 +132,10 @@ header h1, header p{
 }
 
 .word__char {
-    width: 4rem;
-    border-bottom: 2px solid white;
+    width: 2rem;
+    border-bottom: 2px solid var(--black);
     margin-right: 1rem;
     text-align: center;
-    color: white;
     font-weight: 600;
     min-height: 2rem;
 }
